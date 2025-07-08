@@ -1,0 +1,67 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-center items-center top-[3.5rem] ">
+    <div class=" w-[700px] bg-white rounded-lg p-10 space-y-8">
+        <div class="flex text-bold justify-between items-center">
+            <div>
+                <h1 class="font-bold">Edit Task</h1>
+                <div class="h-1 w-8 bg-red-400"></div>
+            </div>
+            <button class="text-sm font-bold underline border-none" (click)="onClose()">Go Back</button>
+        </div>
+
+        <div class="flex flex-col border border-gray-300 rounded-md p-4 space-y-2">
+            <div class="space-y-2">
+                <p class="font-bold">Title</p>
+                <input type="text" class="p-1 border border-gray-300 rounded-md w-full" [(ngModel)]="editedTask.title">
+            </div>
+            <div class="space-y-2">
+                <p class="font-bold">Date</p>
+                <input type="date" class="p-1 border border-gray-300 rounded-md w-full" [(ngModel)]="editedTask.date">
+            </div>
+            <div class="flex flex-row space-x-6">
+                <div class="flex flex-col w-1/2">
+                    <p class="font-bold space-y-2">Priority</p>
+                    <select class="border-[1px] border-gray-300 rounded-md p-1" [(ngModel)]="editedTask.priority">
+                        <option value="extreme" selected>Extreme</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col w-1/2">
+                    <p class="font-bold space-y-2">Status</p>
+                    <select class="border-[1px] border-gray-300 rounded-md p-1" [(ngModel)]="editedTask.status">
+                        <option value="todo" selected>Not Started</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="done">Done</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-7 w-full">
+                <div class="flex flex-col w-2/3 space-y-2">
+                    <p class="font-bold">Task Description</p>
+                    <textarea placeholder="Start writing here..." class="p-2 border border-gray-300 rounded-md" rows="6" [(ngModel)]="editedTask.description"></textarea>
+                </div>
+                
+                <div class="flex flex-col w-1/3 space-y-2">
+                    <p class="font-bold">Upload Image</p>
+                    <div class="border-[1px] border-gray-300 rounded-md w-full h-full overflow-hidden" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+                        <div class="relative h-40 w-full p-2" *ngIf="previewImage && (editedTask || editedTask.image)">
+                            <img class="max-w-full max-h-full object-contain" [src]="previewImage || editedTask.image" alt="uploaded image">
+                            <button (click)="removeImage()" class="absolute top-1 right-1 z-10 bg-white text-red-400 border-none rounded-md px-2 py-1  font-bold text-sm hover:bg-red-400 hover:text-white">✕</button>
+                        </div>
+                        <div  *ngIf="!previewImage && (!editedTask || !editedTask.image)" class="relative flex flex-col items-center justify-center py-4 text-sm space-y-2">
+                            <img src="/assets/images/uploadImg.png" alt="upload image" class="w-8 h-8">
+                            <p class="text-gray-400">Drag&Drop files here</p>
+                            <p class="text-gray-400">or</p>
+                            <label for="uploadInput" class="border-[1px] border-gray-300 rounded-lg py-1 px-2 text-gray-400">Browse</label>
+                            <input (change)="onFileSelected($event)" id="uploadInput" type="file" class="absolute inset-0 opacity-0 cursor-pointer"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button (click)="onSave()" class="py-1 px-4 text-white bg-[#F24E1E] rounded-lg">Done</button>
+    </div>
+</div>

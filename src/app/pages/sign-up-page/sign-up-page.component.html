@@ -1,0 +1,66 @@
+<div class="relative bg-red-400 w-full h-screen">
+    <img src="/assets/images/bg.png" alt="Background Image" class="absolute w-full h-full object-cover inset-0 z-0">
+    <div class="absolute flex bg-white z-40 rounded-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg max-h-screen p-8">
+        <div class="w-1/2 mr-8 mt-12">
+            <img src="/assets/images/signUp.png" alt="Sign Up Image">
+        </div>
+        
+        <div class="flex flex-col w-1/2 space-y-4">
+            <p class="text-2xl font-bold">Sign Up</p>
+            <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6" viewBox="0 0 48 48">
+                    <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                    <circle cx="24" cy="11" r="7" fill="#000"/><path d="M4 41c0-8.837 8.059-16 18-16"/>
+                    <path fill="#000" d="m31 42l10-10l-4-4l-10 10v4z"/>
+                    </g>
+                </svg>
+                <input type="text" placeholder="Enter First Name" class="w-full pl-12 border-2 border-gray-400 rounded-md py-3 text-md focus:outline-none focus:border-gray-600">
+            </div>
+
+            <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6" viewBox="0 0 48 48">
+                    <g fill="none" stroke="#030303" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                    <circle cx="24" cy="11" r="7"/><path d="M4 41c0-8.837 8.059-16 18-16m9 17l10-10l-4-4l-10 10v4z"/>
+                    </g>
+                </svg>
+                <input type="text" placeholder="Enter Last Name" class="w-full pl-12 border-2 border-gray-400 rounded-md py-3 text-md focus:outline-none focus:border-gray-600">
+            </div>
+
+             <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 -translate-y-1/2 w-7 h-7" viewBox="0 0 24 24">
+                    <path fill="#000" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/>
+                </svg>
+                <input type="text" placeholder="Enter Username" class="w-full pl-12 border-2 border-gray-400 rounded-md py-3 text-md focus:outline-none focus:border-gray-600">
+            </div>
+
+             <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6" viewBox="0 0 24 24">
+                    <path fill="#000" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z"/>
+                </svg>
+                <input type="text" placeholder="Enter Email" class="w-full pl-12 border-2 border-gray-400 rounded-md py-3 text-md focus:outline-none focus:border-gray-600">
+            </div>
+
+             <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6" viewBox="0 0 24 24">
+                    <path fill="#000" d="M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3"/>
+                </svg>
+                <input type="password" placeholder="Enter Password" class="w-full pl-12 border-2 border-gray-400 rounded-md py-3 text-md focus:outline-none focus:border-gray-600">
+            </div>
+
+             <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6" viewBox="0 0 24 24">
+                    <path fill="#000" d="M12 17a2 2 0 0 1-2-2c0-1.11.89-2 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2m6 3V10H6v10zm0-12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10c0-1.11.89-2 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3"/>
+                </svg>
+                <input type="password" placeholder="Confirm Password" class="w-full pl-12 border-2 border-gray-400 rounded-md py-3 text-md focus:outline-none focus:border-gray-600">
+            </div>
+
+            <label class="flex items-center">
+                <input type="checkbox" class="mr-4">
+                <span>I agree to all terms</span>
+            </label>
+
+            <app-button label="Register" variant="register"></app-button>
+            <p>Already have an account <a routerLink="/sign-in" class="text-blue-500 hover:cursor-pointer">Sign In</a></p>
+        </div>
+    </div>
+</div>

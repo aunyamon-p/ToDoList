@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="flex w-full h-[calc(100vh-60px)]"> 
+    <div class="w-1/5 h-full">
+        <app-sidebar (menuSelect)="onSelectPage($event)" [activePage]="selectedPage" ></app-sidebar>
+    </div>
+
+    <div *ngIf="selectedPage === 'kanban'" class="w-4/5">
+        <app-kanban [todoList]="todoList" (taskClick)="onClickTaskKanban($event)"></app-kanban>
+    </div>
+
+    <div *ngIf="selectedPage === 'mytask'" class="w-2/5">
+        <app-show-list [todoList]="todoList"  (taskClick)="onTaskClick($event)" (openModal)="onOpenModal($event)"></app-show-list>
+    </div>
+    
+    <div *ngIf="!showViewModal && selectedPage === 'mytask' && selectedTask" class="flex-1">
+        <app-view-detail *ngIf="selectedTask" (delete)="deleteTask()" [task]="selectedTask" (close)="onCloseViewDetail()" (openModal)="onOpenModal($event , selectedTask)"></app-view-detail>
+    </div>
+</div>
+
+<div *ngIf="showViewModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+    <div>
+    <app-view-detail
+      [task]="selectedTask"
+      (delete)="deleteTask();"
+      (close)="onCloseModal()" 
+      [showViewModal]="showViewModal"
+      (openModal)="onOpenModal($event, selectedTask)">
+    </app-view-detail>
+    </div>
+</div>
+
+<app-edit-list *ngIf="showEditModal" [task]="selectedTask" (close)="onCloseModal()" (save)="onSaveChange($event)"></app-edit-list>
+<app-add-list *ngIf="showAddModal" (close)="onCloseModal()"  (add)="onAddTask($event)"></app-add-list>
+
