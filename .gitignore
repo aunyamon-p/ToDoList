@@ -4,7 +4,6 @@ backend/node_modules/
 frontend/node_modules/
 **/.angular/cache/
 
-
 # Build outputs
 dist/
 build/
